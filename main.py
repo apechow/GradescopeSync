@@ -15,7 +15,14 @@ if __name__ == '__main__':
     
     now = dt.now(timezone.utc)
 
-    for course in get_courses():
+    #to filter out instructor/student type (for TA's/people with instructor views on certain courses)
+    courses = get_courses()
+    filtered_courses = list(filter(
+        lambda y:
+            y['type'] == 'student', courses
+         ))
+
+    for course in filtered_courses:
 
         assignments = get_assignments(course['id'])
         filtered = sorted(list(filter(

@@ -6,6 +6,9 @@ gradescope-discohook is a simple Python script that scrapes data from [Gradescop
 
  <img src="https://github.com/bachtran02/gradescope-discohook/assets/83796054/b6bb7015-401b-485c-968c-91baa974381e" width="450">
 
+# Changes made in fork:
+Used docker to run cron and automate at 6AM every morning. Personalized it for those who have instructor course views and needs to filter out instructor courses.
+
 ## How to set up
 
 > Feel free to make use of the code for your own purposes. Here is how I set it up and use it at the moment.
