@@ -1,6 +1,12 @@
 # Use an ARM-compatible base image
 FROM python:3.9-slim-buster
 
+# Install tzdata for timezone settings
+RUN apt-get update && apt-get install -y tzdata
+
+# Set the timezone to PST
+ENV TZ=America/Los_Angeles
+
 # Install cron
 RUN apt-get update && apt-get install -y cron
 
@@ -29,5 +35,6 @@ RUN crontab /etc/cron.d/gradescopesync-job
 CMD ["cron", "-f"]
 
 
-# # Run the application
-# CMD ["python", "main.py"]
+
+
+
