@@ -7,7 +7,7 @@ gradescope-discohook is a simple Python script that scrapes data from [Gradescop
  <img src="https://github.com/bachtran02/gradescope-discohook/assets/83796054/b6bb7015-401b-485c-968c-91baa974381e" width="450">
 
 # Changes made in fork:
-Used docker-compose to run cron and automate at 6AM every morning. Personalized it for those who have instructor course views and needs to filter out instructor courses.
+Used docker-compose to run cron and automate at 6AM every morning. Personalized it for those who have instructor course views and needs to filter out instructor courses. Included a filter to remove assignments that have been closed so that it won't show up as missing.
 
 ## How to set up
 
@@ -18,7 +18,7 @@ Used docker-compose to run cron and automate at 6AM every morning. Personalized 
 
 > `WEBHOOK_URL` is the webhook URL of the Discord text channel you want to send the message to. Check out [this article](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) on how to get it.
 
-3. Run `sudo docker-compose up`
+3. Run `sudo docker compose up`
 
 To automate the execution of the script, I use [Linux cron Jobs](https://www.freecodecamp.org/news/cron-jobs-in-linux/). This should be rather straightforward as we only need to run one command for execution.  
 

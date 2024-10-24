@@ -21,7 +21,6 @@ if __name__ == '__main__':
         lambda y:
             y['type'] == 'student', courses
          ))
-
     for course in filtered_courses:
 
         assignments = get_assignments(course['id'])
@@ -29,11 +28,11 @@ if __name__ == '__main__':
             lambda x: 
                 x['is_submitted'] == False and 
                 x['course_term'] == 'Fall 2024' and
+                x['id'] != None and #only show open assignments (not closed due to past due date)
                 isinstance(x['due_time'], dt),
             assignments)), key=lambda x: x['due_time'])
-        
         if not filtered: continue
-        
+
         todue_str = str()
         field_title = course['abbrv']
         for assgn in filtered[:8]:  # max 8 assignments for each field (more may result in exception)
